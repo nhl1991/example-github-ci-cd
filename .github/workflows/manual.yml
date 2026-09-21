@@ -7,7 +7,6 @@ on:
         default: Hello
         required: true
         description: A Cheerful word
-    inputs: 
       log-level:
         type: choice
         options:
