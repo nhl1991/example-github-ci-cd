@@ -1,0 +1,9 @@
+name: JSON functions
+on: push
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${CONTEXT}"
+        env:
+          CONTEXT: ${{ toJson(github) }} # Github 컨텍스트를 JSON 형식으로 변환
