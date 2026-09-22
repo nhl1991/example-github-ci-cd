@@ -1,0 +1,12 @@
+name: Compare functions
+on: push
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - run: printenv | grep '_FUNC'
+        env:
+          CONTAINS_FUNC: ${{ contains('Hello', 'ell') }}
+          STARTS_WITH_FUNC: ${{ startsWith('Hello', 'He') }}
+          ENDS_WITH_FUNC: ${{ endsWith('Hello', 'lo') }}
+          ARRAY_CONTAINS_FUNC: ${{ contains(github.event.issue.labels.*.name, 'bug') }} # 첫 번째 인수에 배열을 지정한 경우, 두 번째 인수의 문자열이 배열에 포함되면 true를 반환한다.
